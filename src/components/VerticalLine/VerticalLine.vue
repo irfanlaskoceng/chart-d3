@@ -1,7 +1,7 @@
 <script setup>
 	import { watch, onMounted, onUnmounted, ref } from 'vue';
     import { VerticalLine } from '../CustomD3/verticalLine';
-    import { RealtimeDownsampler } from '../CustomD3/RealtimeDownsampler';
+    import { RealtimeDownsampler } from '../CustomD3/realtimeDownsampler';
 	
     const chart_container = ref(null);
     let chart = null;
@@ -98,7 +98,6 @@
                 
                 
                 dataset.values = props.isDownsampling ? realtimeDownsamplers[dataset.code].getSampled() : history;
-                console.log('first',props.msg, dataset.name, dataset.values.length);
             }
         }
         chart.update()
@@ -108,7 +107,6 @@
             for (const dataset of chart.data) {
                 const resSampled = realtimeDownsamplers[dataset.code].getSampled();
                 dataset.values = resSampled;
-                console.log(props.msg, dataset.name, dataset.values.length);
             }
             
             if (chart) {

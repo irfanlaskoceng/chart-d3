@@ -211,7 +211,7 @@ export class VerticalLine{
         this.xAxisBBox = this.xAxisG.node().getBBox();
 
         this.yScale.range([this.height-this.xAxisBBox.height, 0]);
-        this.xScale.range([this.yAxisBBox.width, this.width]);
+        this.xScale.range([this.yAxisBBox.width, this.width-6]);
 
         this.yScale.domain([this.yMinMax.max, this.yMinMax.min])
         this.xScale.domain([this.xMinMax.min, this.xMinMax.max])
